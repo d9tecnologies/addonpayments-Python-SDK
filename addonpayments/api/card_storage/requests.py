@@ -13,7 +13,7 @@ from addonpayments.api.mixins import FieldsAmountMixin, FieldsMixin, FieldsComme
 
 
 @attr.s
-class ReceiptInRequest(FieldsMixin, FieldsAmountMixin, ApiRequest):
+class ReceiptInRequest(ApiRequest, FieldsMixin, FieldsAmountMixin):
     """
     Class representing a receipt in request to be sent to API.
     """
@@ -28,7 +28,7 @@ class ReceiptInRequest(FieldsMixin, FieldsAmountMixin, ApiRequest):
 
 
 @attr.s
-class RealVaultThreeDsVerifyEnrolled(FieldsAmountMixin, ApiRequest):
+class RealVaultThreeDsVerifyEnrolled(ApiRequest, FieldsAmountMixin):
     """
     Class representing a 3D Secure verify Stored card enrolled to be sent to API.
     """
@@ -40,7 +40,7 @@ class RealVaultThreeDsVerifyEnrolled(FieldsAmountMixin, ApiRequest):
 
 
 @attr.s
-class PayerNewRequest(FieldsCommentMixin, ApiRequest):
+class PayerNewRequest(ApiRequest, FieldsCommentMixin):
     """
     Class representing a new payer to be sent to API.
     """
@@ -59,7 +59,7 @@ class PayerNewRequest(FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class PayerEditRequest(FieldsCommentMixin, ApiRequest):
+class PayerEditRequest(ApiRequest, FieldsCommentMixin):
     """
     Class representing a edit payer to be sent to API.
     """
@@ -78,7 +78,7 @@ class PayerEditRequest(FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class CardNewRequest(FieldsCommentMixin, ApiRequest):
+class CardNewRequest(ApiRequest, FieldsCommentMixin):
     """
     Class representing a new card to be sent to API.
     """
@@ -106,7 +106,7 @@ class CardNewRequest(FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class CardUpdateRequest(FieldsCommentMixin, ApiRequest):
+class CardUpdateRequest(ApiRequest, FieldsCommentMixin):
     """
     Class representing a card update to be sent to API.
     """
@@ -124,7 +124,7 @@ class CardUpdateRequest(FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class CardCancelRequest(FieldsCommentMixin, ApiRequest):
+class CardCancelRequest(ApiRequest, FieldsCommentMixin):
     """
     Class representing a card cancellation to be sent to API.
     """
@@ -142,7 +142,7 @@ class CardCancelRequest(FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class CardDccRateRequest(FieldsAmountMixin, FieldsCommentMixin, ApiRequest):
+class CardDccRateRequest(ApiRequest, FieldsAmountMixin, FieldsCommentMixin):
     """
     Class representing a card dcc rate to be sent to API.
     """

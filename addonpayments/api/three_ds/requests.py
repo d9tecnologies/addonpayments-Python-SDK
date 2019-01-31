@@ -13,7 +13,7 @@ from addonpayments.api.three_ds.validators import ThreeDSValidator
 
 
 @attr.s
-class ThreeDsVerifyEnrolled(FieldsAmountMixin, FieldsCommentMixin, ApiRequest):
+class ThreeDsVerifyEnrolled(ApiRequest, FieldsAmountMixin, FieldsCommentMixin):
     """
     Class representing a 3D Secure verifying card request to be sent to API.
     """
@@ -27,7 +27,7 @@ class ThreeDsVerifyEnrolled(FieldsAmountMixin, FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class ThreeDsVerifySig(FieldsAmountMixin, ApiRequest):
+class ThreeDsVerifySig(ApiRequest, FieldsAmountMixin):
     """
     Class representing a 3D Secure signature verification request to be sent to API.
     """

@@ -54,7 +54,7 @@ class CardWithCvn(Card):
 
 
 @attr.s
-class CardWithRef(CardRef, Card):
+class CardWithRef(Card, CardRef):
     """
     Class represents the card with CardRef
     """

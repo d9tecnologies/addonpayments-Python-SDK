@@ -58,8 +58,12 @@ class XmlMixin(DictMixin):
 
     xml_root_tag = ''
     xml_root_attributes = []
+    """
+    If define those variables, the order of mixins caused 
+    that this variables always evals []
     xml_grouped_fields = []
     xml_list_fields = []
+    """
 
     def get_xml_root_tag(self):
         """
@@ -71,6 +75,24 @@ class XmlMixin(DictMixin):
             return self.__class__.__name__.lower()
         else:
             return self.xml_root_tag
+
+    def get_xml_grouped_fields(self):
+        """
+        This method return xml_grouped_fields value if defined
+        """
+        if hasattr(self, 'xml_grouped_fields'):
+            return self.xml_grouped_fields
+        else:
+            return []
+
+    def get_xml_list_fields(self):
+        """
+        This method return xml_list_fields value if defined
+        """
+        if hasattr(self, 'xml_list_fields'):
+            return self.xml_list_fields
+        else:
+            return []
 
     def normalize_xml(self):
         """
@@ -90,8 +112,8 @@ class XmlMixin(DictMixin):
             if key in self.object_fields:
                 result.update(value.normalize_xml())
             else:
-                grouped_fields = [item for item in self.xml_grouped_fields if item[0] == key or item[1] == key]
-                list_fields = [item for item in self.xml_list_fields if item[0] == key]
+                grouped_fields = [item for item in self.get_xml_grouped_fields() or [] if item[0] == key or item[1] == key]
+                list_fields = [item for item in self.get_xml_list_fields() or [] if item[0] == key]
                 if grouped_fields:
                     # This field (key) is a field grouped with another
                     result[grouped_fields[0][0]] = {

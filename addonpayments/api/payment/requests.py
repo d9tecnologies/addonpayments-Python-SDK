@@ -11,7 +11,7 @@ from addonpayments.api.mixins import FieldsAmountMixin, FieldsMixin
 
 
 @attr.s
-class AuthRequest(FieldsMixin, FieldsAmountMixin, ApiRequest):
+class AuthRequest(ApiRequest, FieldsMixin, FieldsAmountMixin):
     """
     Class representing a authorisation request to be sent to API.
     """

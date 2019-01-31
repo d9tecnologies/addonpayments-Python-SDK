@@ -12,7 +12,7 @@ from addonpayments.validators import RequestValidator
 
 
 @attr.s
-class Settle(FieldsCommentMixin, ApiRequest):
+class Settle(ApiRequest, FieldsCommentMixin):
     """
     Class representing a settle request to be sent to API.
     """
@@ -31,7 +31,7 @@ class Settle(FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class Rebate(FieldsAmountMixin, FieldsCommentMixin, ApiRequest):
+class Rebate(ApiRequest ,FieldsAmountMixin, FieldsCommentMixin):
     """
     Class representing a rebate request to be sent to API.
     """
@@ -51,7 +51,7 @@ class Rebate(FieldsAmountMixin, FieldsCommentMixin, ApiRequest):
 
 
 @attr.s
-class Void(FieldsCommentMixin, ApiRequest):
+class Void(ApiRequest, FieldsCommentMixin):
     """
     Class representing a void request to be sent to API.
     """

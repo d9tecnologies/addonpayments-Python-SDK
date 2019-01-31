@@ -12,7 +12,7 @@ from addonpayments.api.payment.requests import AuthRequest
 
 
 @attr.s
-class DccRate(FieldsAmountMixin, FieldsCommentMixin, ApiRequest):
+class DccRate(ApiRequest, FieldsAmountMixin, FieldsCommentMixin):
     """
     Class representing a DCC rate request to be sent to API.
     """

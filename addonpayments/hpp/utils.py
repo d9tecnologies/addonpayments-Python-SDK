@@ -6,6 +6,7 @@ import base64
 import json
 
 import six
+import attr
 
 from addonpayments.hpp.card_storage.requests import CardStorageRequest
 from addonpayments.hpp.payment.requests import PaymentRequest
@@ -58,10 +59,10 @@ class JsonUtils(object):
             key_hpp = key.lower()
             is_supplementary_data = False
             if is_card_storage:
-                if not hasattr(CardStorageRequest, key_hpp):
+                if not key_hpp in attr.fields_dict(CardStorageRequest):
                     is_supplementary_data = True
             else:
-                if not hasattr(PaymentRequest, key_hpp):
+                if not key_hpp in attr.fields_dict(PaymentRequest):
                     is_supplementary_data = True
             if is_supplementary_data:
                 supplementary_data[key] = value
